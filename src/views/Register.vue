@@ -5,9 +5,9 @@
                 <div class="col-md-6 offset-md-3 col-xs-12">
                     <h1 class="text-center">Sign up</h1>
                     <p class="text-center">
-                        <router-link to="{name: 'login'}">
+                        <!-- <router-link to="{name: 'login'}">
                             Need an account?
-                        </router-link>
+                        </router-link> -->
                     </p>
                     VALIDATION ERRORS
                     <form>
@@ -32,6 +32,8 @@
                 </div>
                 <div class="col-md-6 offset-md-3 col-xs-12 text-center">
                     <button class="btn btn-lg btn-primary">Sign up</button>
+                    <button class="btn btn-lg btn-secondary" @click="increaseCount">Increase</button>
+                    {{ count }}
                 </div>
             </div>
         </div>
@@ -40,6 +42,16 @@
 
 <script>
 export default {
-    name: 'McvRegister'
+    name: 'McvRegister',
+    computed: {
+        count() {
+            return this.$store.state.count;
+        }
+    },
+    methods: {
+        increaseCount(){
+            this.$store.commit('increment');
+        }
+    }
 }
 </script>
